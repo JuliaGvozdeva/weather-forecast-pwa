@@ -1,13 +1,17 @@
 import React from 'react';
 import './App.scss';
 import NearestWeather from './components/NearestWeather/NearestWeather';
+import Logo from './components/Logo/Logo';
 
-function App() {
+const App: React.FC = () => {
   return (
-    <div className="App">
-      <NearestWeather />
+    <div className="app-container">
+      <Logo />
+      <div className='weather-container'>
+        <NearestWeather />
+      </div>
     </div>
   );
-}
+};
 
 export default App;
