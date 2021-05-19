@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.scss';
+import NearestWeather from './components/NearestWeather/NearestWeather';
 
 function App() {
   return (
-    <div className="App">czlcklz
+    <div className="App">
+      <NearestWeather />
     </div>
   );
 }
