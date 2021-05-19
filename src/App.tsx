@@ -9,6 +9,7 @@ const App: React.FC = () => {
       <Logo />
       <div className='weather-container'>
         <NearestWeather />
+        <NearestWeather />
       </div>
     </div>
   );

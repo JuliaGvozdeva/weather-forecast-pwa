@@ -13,8 +13,8 @@ const CitySelect: React.FC<IProps> = ({ getCity }) => {
   };
 
   return (
-    <div className='select-container'>
-      <select className='select-container__select' name='city-select' value={city} onChange={handleChange}>
+    <div className='city-select'>
+      <select className='city-select__select' value={city} onChange={handleChange}>
         <option value=''>Select sity</option>
         {
           cities.map((city) => {
@@ -22,7 +22,7 @@ const CitySelect: React.FC<IProps> = ({ getCity }) => {
           })
         }
       </select>
-    </div>
+    </div >
   );
 };
 

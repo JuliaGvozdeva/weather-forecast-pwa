@@ -1,0 +1,26 @@
+.city-select {
+    margin-bottom: 60px;
+}
+
+.city-select select {
+    width: 252px;
+    box-sizing: border-box;
+    padding: 12px 16px;
+    font-size: 16px;
+    line-height: 24px;
+    color: $secondary-font-color;
+    border: 2px solid $secondary-02;
+    border-radius: 8px;
+    background: $secondary-06;
+    outline: none;
+    background-image: url('../../assets/images/icons/chevron-bottom.png');
+    background-repeat: no-repeat;
+    background-position: 215px center;
+    appearance: none;
+    cursor: pointer;
+
+    &:focus {
+        border: 2px solid $base-font-color;
+        background-image: url('../../assets/images/icons/chevron-top.png');
+    }
+}

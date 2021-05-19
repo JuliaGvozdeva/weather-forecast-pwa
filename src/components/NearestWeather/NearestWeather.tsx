@@ -64,9 +64,7 @@ const NearestWeather: React.FC = () => {
     <div className='forecast-container'>
       <h1 className='title'>7 Days Forecast</h1>
       <CitySelect getCity={getCity} />
-      <div className='weather-container__cards'>
-        {city === '' ? <EmptyBlockSection /> : null}
-      </div>
+      {city === '' ? <EmptyBlockSection /> : null}
     </div>
   );
 };
