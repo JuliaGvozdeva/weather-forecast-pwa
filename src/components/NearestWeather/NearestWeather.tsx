@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CitySelect from '../Select/CitySelect';
 import { API } from '../../constants/components/constants';
+import EmptyBlockSection from '../EmptyBlockSection/EmptyBlockSection';
 
 interface ICityDetails {
   lat: number,
@@ -60,10 +61,11 @@ const NearestWeather: React.FC = () => {
   console.log(weatherData);
 
   return (
-    <div className='weather-container'>
+    <div className='forecast-container'>
+      <h1 className='title'>7 Days Forecast</h1>
       <CitySelect getCity={getCity} />
       <div className='weather-container__cards'>
-        {city === '' ? <p>{'Fill in all the fields and the weather will be displayed'}</p> : null}
+        {city === '' ? <EmptyBlockSection /> : null}
       </div>
     </div>
   );

@@ -1,16 +1,10 @@
-.weather-container {
+.forecast-container {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  color: $font-color;
-  row-gap: 30px;
-  margin-top: 30px;
-  background-color: $background-color-light;
-  padding: 20px;
-  border-radius: 10px;
+  align-items: flex-start;
+  color: $secondary-font-color;
+  padding: 50px;
+  background-color: $weather-container-background;
 }
 
-.weather-container__cards {
-  margin-bottom: 30px;
-}
+.weather-block_empty {}
