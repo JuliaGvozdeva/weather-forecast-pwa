@@ -44,7 +44,7 @@ const CitySelect: React.FC<IProps> = ({ getCity }) => {
             }
           </ul> : null
       }
-    </div >
+    </div>
   );
 };
 
