@@ -24,3 +24,12 @@
         background-image: url('../../assets/images/icons/chevron-top.png');
     }
 }
+
+select optgroup {
+    border: none;
+    border-radius: 10px;
+}
+
+.city-select__select__option {
+    background-color: $weather-container-background;
+}

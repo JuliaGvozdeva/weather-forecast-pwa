@@ -1,0 +1,24 @@
+.slider-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;    
+    margin-left: 25px;
+    column-gap: 0.5em;
+}
+
+.slider-container__card-list {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    column-gap: 0.5em;
+}
+
+.slider-container__btn-next {
+    transform: rotate(180deg);
+}
+
+.slider-container__btn {
+    cursor: pointer;
+}

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import CitySelect from '../Select/CitySelect';
-import { API } from '../../constants/components/constants';
+import { API } from '../../common/components/constants';
 import EmptyBlockSection from '../EmptyBlockSection/EmptyBlockSection';
+import Slider from '../Slider/Slider';
+import { IWeatherDetails, IWeatherDetailsList } from '../../common/interfaces/interfaces';
 
 interface ICityDetails {
   lat: number,
@@ -37,7 +39,7 @@ const NearestWeather: React.FC = () => {
     }
   };
   const [city, setCity] = useState<string>('');
-  const [weatherData, setWeatherData] = useState<any>([]);
+  const [weatherData, setWeatherData] = useState<Array<IWeatherDetailsList> | []>([]);
   const getCity = (returnCity: string): void => {
     setCity(returnCity.toLowerCase());
   };
@@ -52,19 +54,33 @@ const NearestWeather: React.FC = () => {
             return response.json();
           }
         })
-        .then(data => setWeatherData(data))
+        .then((data) => {
+          if (data.daily) {
+            const daylyDetails = data.daily.map((day: any) => {
+              const details: IWeatherDetails = {
+                dateTime: day.dt,
+                temp: day.temp.eve,
+                icon: day.weather[0].icon,
+                description: day.weather[0].main
+              };
+              return details;
+            });
+            setWeatherData(daylyDetails);
+          }
+        })
         .catch((error) => {
           console.error(error);
         });
     }
   }, [city]);
-  console.log(weatherData);
 
   return (
     <div className='forecast-container'>
-      <h1 className='title'>7 Days Forecast</h1>
-      <CitySelect getCity={getCity} />
-      {city === '' ? <EmptyBlockSection /> : null}
+      <div className="forecast-container__details">
+        <h1 className='title'>7 Days Forecast</h1>
+        <CitySelect getCity={getCity} />
+      </div>
+      {city === '' ? <EmptyBlockSection /> : <Slider weatherData={weatherData} />}
     </div>
   );
 };
