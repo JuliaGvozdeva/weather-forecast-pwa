@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import CitySelect from '../Select/CitySelect';
 import { API } from '../../common/components/constants';
-import EmptyBlockSection from '../EmptyBlockSection/EmptyBlockSection';
+import ErrorBlockSection from '../ErrorBlockSection/ErrorBlockSection';
 import Slider from '../Slider/Slider';
 import { IWeatherDetails, IWeatherDetailsList } from '../../common/interfaces/interfaces';
 
@@ -80,7 +80,7 @@ const NearestWeather: React.FC = () => {
         <h1 className='title'>7 Days Forecast</h1>
         <CitySelect getCity={getCity} />
       </div>
-      {city === '' ? <EmptyBlockSection /> : <Slider weatherData={weatherData} />}
+      {city === '' ? <ErrorBlockSection errorText={'Fill in all the fields and the weather will be displayed'} /> : <Slider weatherData={weatherData} />}
     </div>
   );
 };

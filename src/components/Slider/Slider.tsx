@@ -4,7 +4,7 @@ import arrowDisabled from '../../assets/images/icons/chevron-left-disabled.png';
 import { COUNT_CARDS_WEB, COUNT_WEATHER_CARDS_ALL } from '../../common/components/constants';
 import WeatherCard from '../WeatherCard/WeatherCard';
 import { IWeatherDetailsList } from '../../common/interfaces/interfaces';
-import EmptyBlockSection from '../EmptyBlockSection/EmptyBlockSection';
+import ErrorBlockSection from '../ErrorBlockSection/ErrorBlockSection';
 
 interface IProps {
   weatherData: Array<IWeatherDetailsList> | []
@@ -52,7 +52,7 @@ const Slider: React.FC<IProps> = ({ weatherData }) => {
       </section>
     );
   } else {
-    return <EmptyBlockSection />;
+    return <ErrorBlockSection errorText={'There are no items. Please try again.'} />;
   }
 };
 
