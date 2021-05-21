@@ -2,6 +2,7 @@ import React from 'react';
 import './App.scss';
 import NearestWeather from './components/NearestWeather/NearestWeather';
 import Logo from './components/Logo/Logo';
+import PastForecast from './components/PastForecast/PastForecast';
 
 const App: React.FC = () => {
   return (
@@ -9,7 +10,7 @@ const App: React.FC = () => {
       <Logo />
       <div className='weather-container'>
         <NearestWeather />
-        <NearestWeather />
+        <PastForecast />
       </div>
     </div>
   );

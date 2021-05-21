@@ -9,4 +9,13 @@ interface IWeatherDetailsList {
     [daily: string]: IWeatherDetails
 };
 
-export type { IWeatherDetails, IWeatherDetailsList };
+interface ICityDetails {
+    lat: number,
+    lon: number
+};
+
+interface IListOfCities {
+    [city: string]: ICityDetails
+};
+
+export type { IWeatherDetails, IWeatherDetailsList, ICityDetails, IListOfCities };

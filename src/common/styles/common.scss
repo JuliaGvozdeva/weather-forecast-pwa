@@ -1,9 +1,10 @@
-.title {
+.forecast-container__title {
   color: $base-font-color;
   font-style: normal;
   font-weight: bold;
   font-size: 32px;
   line-height: 32px;
+  text-align: left;
 }
 
 .weather-block_empty {
@@ -16,4 +17,11 @@
     & img {
         margin-bottom: 25px;
     }
+}
+
+.forecast-container__selects {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
 }
