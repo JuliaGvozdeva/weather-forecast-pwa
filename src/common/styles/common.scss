@@ -25,3 +25,10 @@
   justify-content: space-between;
   position: relative;
 }
+
+@media screen and (max-device-width: 600px) {
+  .forecast-container__selects {
+    flex-direction: column;
+    row-gap: 1em;
+  }
+}

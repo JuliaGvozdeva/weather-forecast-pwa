@@ -12,6 +12,7 @@ const App: React.FC = () => {
         <NearestWeather />
         <PastForecast />
       </div>
+      <footer>C ЛЮБОВЬЮ ОТ MERCURY DEVELOPMENT</footer>
     </div>
   );
 };

@@ -1,4 +1,9 @@
 .logo {
     margin-top: 65px;
-    margin-bottom: 60px;
+}
+
+@media screen and (max-device-width: 600px) {
+    .logo img{
+      width: 243px;
+    }
 }

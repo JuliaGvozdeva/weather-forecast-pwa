@@ -51,7 +51,9 @@ const NearestWeather: React.FC = () => {
           <CitySelect getCity={getCity} />
         </div>
       </div>
-      {city === '' ? <ErrorBlockSection errorText={'Fill in all the fields and the weather will be displayed'} /> : <Slider weatherData={weatherData} />}
+
+      {city === '' ? <div className="forecast-container__card"><ErrorBlockSection errorText={'Fill in all the fields and the weather will be displayed'} />
+      </div> : <Slider weatherData={weatherData} />}
     </div>
   );
 };
