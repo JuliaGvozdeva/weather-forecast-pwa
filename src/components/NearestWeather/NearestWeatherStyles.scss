@@ -33,6 +33,12 @@
   }
 }
 
+@media screen and (max-device-width: 660px) {
+  .forecast-container {
+    width: 550px;
+  }
+}
+
 @media screen and (max-device-width: 600px) {
   .forecast-container {
     width: 300px;
