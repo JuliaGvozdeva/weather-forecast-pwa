@@ -24,21 +24,26 @@ const Datepicker: React.FC<IProps> = ({ getDate }) => {
         setPastDate(`${getMonth(selectedDate)}/${selectedDate.getDate()}/${selectedDate.getFullYear()}`);
     };
 
-    const handleMouseOver = (event: React.MouseEvent<HTMLInputElement>) => {
+    const handleInputTextTypeChange = (event: React.MouseEvent<HTMLInputElement> | React.FocusEvent<HTMLInputElement>) => {
         event.currentTarget.type = 'date';
         setToggleCalendarIcon(false);
     };
 
-    const handleMouseEnter = (event: React.MouseEvent<HTMLInputElement>) => {
+    const handleInputDateTypeChange = (event: React.MouseEvent<HTMLInputElement> | React.FocusEvent<HTMLInputElement>) => {
         event.currentTarget.type = 'text';
         event.currentTarget.placeholder = 'Select date';
         setToggleCalendarIcon(true);
     };
 
+    const changeInputTextTypeByClick = (event: any) => {
+        event.target.parentNode.children[0].type = 'date';
+        setToggleCalendarIcon(false);
+    };
+
     return (
         <div className='forecast-selects__date'>
-            <input type='text' max={maxDatepicerDate} min={minDatepicerDate} name='forecast-selects__date' onMouseOver={handleMouseOver} onMouseOut={handleMouseEnter} value={pastDate} onChange={handleDateChange} />
-            {toggleCalendarIcon ? <div className="forecast-selects__img-datepicker"></div> : null}
+            <input type='text' max={maxDatepicerDate} min={minDatepicerDate} name='forecast-selects__date' onMouseOver={handleInputTextTypeChange} onBlur={handleInputDateTypeChange} onMouseOut={handleInputDateTypeChange} value={pastDate} onChange={handleDateChange}></input>
+            {toggleCalendarIcon ? <div className="forecast-selects__img-datepicker" onClick={changeInputTextTypeByClick}></div> : null}
         </div>
     );
 };
