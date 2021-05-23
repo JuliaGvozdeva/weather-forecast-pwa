@@ -1,0 +1,12 @@
+{
+    "extends" : "standart",
+    "rules": {
+        "semi": [2, "always"]
+    },
+    "parserOptions": {
+        "ecmaFeatures": {
+            "jsx": true,
+            "modules": true
+        }
+    }
+}

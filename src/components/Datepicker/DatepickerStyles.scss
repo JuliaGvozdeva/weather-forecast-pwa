@@ -1,0 +1,56 @@
+.select-date {
+    &:hover input{
+        border: 2px solid $accent-color;
+    }
+
+    &:hover .forecast-selects__img-datepicker {
+        background-image: url('../../assets/images/icons/calendar-hover.png');
+    }
+}
+
+.select-date input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    width: 252px;
+    height: 48px;
+    color: $base-font-color;
+    background: $secondary-06;
+    border: 2px solid $secondary-02;
+    border-radius: 8px;
+    padding: 12px;
+    box-sizing: border-box;
+    font-size: 16px;
+    line-height: 24px;
+    cursor: pointer;
+    position: relative;
+    outline: none;
+}
+
+.select-date__img-datepicker {
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: 30%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    right: 18px;
+    background-image: url('../../assets/images/icons/calendar.png');
+    cursor: pointer;
+}
+
+input[type="date"]::-webkit-calendar-picker-indicator {
+    cursor: pointer;
+    background-image: url('../../assets/images/icons/calendar.png');
+
+    &:hover {
+        background-image: url('../../assets/images/icons/calendar-hover.png');
+    }
+}
+
+@media screen and (max-device-width: 600px) {
+    .select-date__img-datepicker {
+        top: 70%;
+    }
+}

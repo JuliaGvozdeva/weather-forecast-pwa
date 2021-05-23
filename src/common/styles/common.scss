@@ -1,0 +1,34 @@
+.forecast-container__title {
+  color: $base-font-color;
+  font-style: normal;
+  font-weight: bold;
+  font-size: 32px;
+  line-height: 32px;
+  text-align: left;
+}
+
+.error-container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    & img {
+        margin-bottom: 25px;
+    }
+}
+
+.forecast-container__selects {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  position: relative;
+}
+
+@media screen and (max-device-width: 600px) {
+  .forecast-container__selects {
+    flex-direction: column;
+    row-gap: 1em;
+  }
+}
