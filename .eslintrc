@@ -1,5 +1,14 @@
 {
-    "extends" : "standart",
+    "root": true,
+    "parser": "@typescript-eslint/parser",
+    "plugins": [
+      "@typescript-eslint"
+    ],
+    "extends" : [
+        "standart",
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
     "rules": {
         "semi": [2, "always"]
     },
