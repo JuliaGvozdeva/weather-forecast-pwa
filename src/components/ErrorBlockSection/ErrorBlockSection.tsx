@@ -7,8 +7,8 @@ interface IProps {
 
 const ErrorBlockSection: React.FC<IProps> = ({ errorText }) => {
     return (
-        <div className='weather-block_empty'>
-            <img src={emptyIcon} alt='empty-block-icon' />
+        <div className='error-container'>
+            <img src={emptyIcon} alt='error-container-icon' />
             <p>{errorText}</p>
         </div>
     );

@@ -1,4 +1,4 @@
-.city-select {
+.select-city {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -22,14 +22,14 @@
     }
 }
 
-.city-select__arrow {
+.select-city__arrow {
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.city-select__optgroup {
+.select-city__optgroup {
     width: 252px;
     height: 160px;
     position: absolute;
@@ -47,7 +47,7 @@
     z-index: 10;
 }
 
-.city-select__select-item {
+.select-city__select-item {
     list-style: none;
     text-align: left;
     border-radius: 8px;

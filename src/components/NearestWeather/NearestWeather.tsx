@@ -3,12 +3,12 @@ import CitySelect from '../Select/CitySelect';
 import { API, CITY_COORDINATES } from '../../common/components/constants';
 import ErrorBlockSection from '../ErrorBlockSection/ErrorBlockSection';
 import Slider from '../Slider/Slider';
-import { IWeatherDetails, IWeatherDetailsList } from '../../common/interfaces/interfaces';
+import { IWeatherDetails } from '../../common/interfaces/interfaces';
 
 const NearestWeather: React.FC = () => {
   const KEY = process.env.REACT_APP_WEATHER_API_KEY;
   const [city, setCity] = useState<string>('');
-  const [weatherData, setWeatherData] = useState<Array<IWeatherDetailsList> | []>([]);
+  const [weatherData, setWeatherData] = useState<Array<IWeatherDetails> | []>([]);
   const getCity = (returnCity: string): void => {
     setCity(returnCity.toLowerCase());
   };

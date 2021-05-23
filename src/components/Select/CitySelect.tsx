@@ -8,15 +8,15 @@ interface IProps {
 
 const CitySelect: React.FC<IProps> = ({ getCity }) => {
   const [city, setCity] = useState<string>('Select city');
-  const cities = ['Samara', 'Tolyatti', 'Saratov', 'Kazan', 'Krasnodar'];
+  const cities: Array<string> = ['Samara', 'Tolyatti', 'Saratov', 'Kazan', 'Krasnodar'];
   const [toggleSelect, setToggleSelect] = useState<boolean>(false);
 
-  const toggleOptGroup = (event: any) => {
+  const toggleOptGroup = (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     setToggleSelect(!toggleSelect);
     event.stopPropagation();
   };
 
-  const selectCity = (event: React.MouseEvent<HTMLLIElement>) => {
+  const selectCity = (event: React.MouseEvent<HTMLLIElement>): void => {
     const target: any = event.target;
     setCity(target.innerText);
     getCity(target.innerText);
@@ -29,17 +29,17 @@ const CitySelect: React.FC<IProps> = ({ getCity }) => {
   });
 
   return (
-    <div className='city-select' id='select' onClick={toggleOptGroup}>
-      <div className='city-select__text'>{city}</div>
-      <div className='city-select__arrow'>
+    <div className='select-city' id='select' onClick={toggleOptGroup}>
+      <div className='select-city__text'>{city}</div>
+      <div className='select-city__arrow'>
         <img src={toggleSelect ? SelectArrowTop : SelectArrowBottom} alt='select arrow' />
       </div>
       {
         toggleSelect ?
-          <ul className='city-select__optgroup'>
+          <ul className='select-city__optgroup'>
             {
               cities.map((city) => {
-                return <li id={city} className='city-select__select-item' key={city} value={city} onClick={selectCity}>{city}</li>;
+                return <li id={city} className='select-city__select-item' key={city} value={city} onClick={selectCity}>{city}</li>;
               })
             }
           </ul> : null

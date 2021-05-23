@@ -3,7 +3,7 @@ import { IWeatherDetails } from '../../common/interfaces/interfaces';
 import { COUNT_MILISEC } from '../../common/components/constants';
 
 interface IProps {
-  dayData: IWeatherDetails | any
+  dayData: IWeatherDetails
 }
 
 const WeatherCard: React.FC<IProps> = ({ dayData }) => {

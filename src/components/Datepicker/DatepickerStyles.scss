@@ -1,4 +1,4 @@
-.forecast-selects__date {
+.select-date {
     &:hover input{
         border: 2px solid $accent-color;
     }
@@ -8,7 +8,7 @@
     }
 }
 
-.forecast-selects__date input {
+.select-date input {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -28,7 +28,7 @@
     outline: none;
 }
 
-.forecast-selects__img-datepicker {
+.select-date__img-datepicker {
     width: 18px;
     height: 18px;
     position: absolute;
@@ -50,7 +50,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 @media screen and (max-device-width: 600px) {
-    .forecast-selects__img-datepicker {
+    .select-date__img-datepicker {
         top: 70%;
     }
 }
