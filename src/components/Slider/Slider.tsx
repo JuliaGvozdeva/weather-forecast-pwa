@@ -29,7 +29,7 @@ const Slider: React.FC<IProps> = ({ weatherData }) => {
   };
 
   const getCardsList = (currentStart: number): ReactElement[] => {
-    let listOfWeatherCards: ReactElement[] = [];
+    const listOfWeatherCards: ReactElement[] = [];
     const endCardIdx: number = currentStartItem + COUNT_CARD;
 
     for (let i = currentStart; i < endCardIdx; i++) {

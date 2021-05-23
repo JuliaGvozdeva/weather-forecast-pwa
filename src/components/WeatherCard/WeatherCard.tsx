@@ -9,10 +9,10 @@ interface IProps {
 const WeatherCard: React.FC<IProps> = ({ dayData }) => {
   const monthes: Array<string> = ['jan', 'feb', 'mar', 'apr', 'may', 'june', 'july', 'aug', 'sept', 'oct', 'nov', 'dec'];
   const currentDay: Date = new Date(dayData.dateTime * COUNT_MILISEC);
-  const dateWithFormat: string = `${currentDay.getDate()} ${monthes[currentDay.getMonth()]} ${currentDay.getFullYear()}`;
+  const dateWithFormat = `${currentDay.getDate()} ${monthes[currentDay.getMonth()]} ${currentDay.getFullYear()}`;
   const temp: number = Math.ceil(dayData.temp);
-  const altIcon: string = `${dayData.description} img`;
-  const iconUrl: string = `http://openweathermap.org/img/wn/${dayData.icon}@4x.png`;
+  const altIcon = `${dayData.description} img`;
+  const iconUrl = `http://openweathermap.org/img/wn/${dayData.icon}@4x.png`;
   return (
     <div className='card-container'>
       <div className='card-container__date'>{dateWithFormat}</div>

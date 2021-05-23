@@ -1,9 +1,10 @@
 import { IListOfCities } from '../../common/interfaces/interfaces';
 
-export const API: string = 'https://api.openweathermap.org';
-export const COUNT_CARDS_WEB: number = 3;
-export const COUNT_CARDS_MOBILE: number = 1;
-export const COUNT_WEATHER_CARDS_ALL: number = 7;
+export const API = 'https://api.openweathermap.org';
+export const COUNT_CARDS_WEB = 3;
+export const COUNT_CARDS_MOBILE = 1;
+export const COUNT_WEATHER_CARDS_ALL = 7;
+export const COUNT_MILISEC = 1000;
 export const CITY_COORDINATES: IListOfCities = {
     samara: {
         lat: 53.195873,
@@ -26,4 +27,3 @@ export const CITY_COORDINATES: IListOfCities = {
         lon: 38.975313
     }
 };
-export const COUNT_MILISEC = 1000;

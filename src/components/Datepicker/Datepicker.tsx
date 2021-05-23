@@ -7,16 +7,16 @@ interface IProps {
 const Datepicker: React.FC<IProps> = ({ getDate }) => {
     const [toggleCalendarIcon, setToggleCalendarIcon] = useState<boolean>(true);
     const [pastDate, setPastDate] = useState<string>('Select date');
-    let today: Date = new Date();
+    const today: Date = new Date();
     today.setDate(today.getDate() - 1);
 
     const getMonth = (todayMonth: Date): string => {
         return todayMonth.getMonth() + 1 < 10 ? `0${todayMonth.getMonth() + 1}` : `${todayMonth.getMonth() + 1}`;
     };
 
-    const maxDatepicerDate: string = `${today.getFullYear()}-${getMonth(today)}-${today.getDate()}`;
+    const maxDatepicerDate = `${today.getFullYear()}-${getMonth(today)}-${today.getDate()}`;
     today.setDate(today.getDate() - 5);
-    let minDatepicerDate: string = `${today.getFullYear()}-${getMonth(today)}-${today.getDate()}`;
+    const minDatepicerDate = `${today.getFullYear()}-${getMonth(today)}-${today.getDate()}`;
 
     const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
         getDate(event.target.value);
