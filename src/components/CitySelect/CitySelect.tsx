@@ -6,7 +6,7 @@ interface IProps {
   changeCity: (city: string) => void;
 }
 
-const Select: React.FC<IProps> = ({ changeCity }) => {
+const CitySelect: React.FC<IProps> = ({ changeCity }) => {
   const [city, setCity] = useState<string>('Select city');
   const cities: Array<string> = ['Samara', 'Tolyatti', 'Saratov', 'Kazan', 'Krasnodar'];
   const [toggleSelect, setToggleSelect] = useState<boolean>(false);
@@ -48,4 +48,4 @@ const Select: React.FC<IProps> = ({ changeCity }) => {
   );
 };
 
-export default Select;
+export default CitySelect;
