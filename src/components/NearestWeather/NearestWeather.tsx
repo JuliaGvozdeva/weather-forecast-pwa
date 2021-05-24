@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import CitySelect from '../Select/CitySelect';
+import CitySelect from '../CitySelect/CitySelect';
 import { API, CITY_COORDINATES } from '../../common/components/constants';
 import ErrorBlockSection from '../ErrorBlockSection/ErrorBlockSection';
 import Slider from '../Slider/Slider';
@@ -9,7 +9,7 @@ const NearestWeather: React.FC = () => {
   const KEY = process.env.REACT_APP_WEATHER_API_KEY;
   const [city, setCity] = useState<string>('');
   const [weatherData, setWeatherData] = useState<Array<IWeatherDetails> | []>([]);
-  const getCity = (returnCity: string): void => {
+  const changeCity = (returnCity: string): void => {
     setCity(returnCity.toLowerCase());
   };
   useEffect(() => {
@@ -48,7 +48,7 @@ const NearestWeather: React.FC = () => {
       <div className='forecast-container__details'>
         <h1 className='forecast-container__title'>7 Days Forecast</h1>
         <div className="forecast-container__selects">
-          <CitySelect getCity={getCity} />
+          <CitySelect changeCity={changeCity} />
         </div>
       </div>
 

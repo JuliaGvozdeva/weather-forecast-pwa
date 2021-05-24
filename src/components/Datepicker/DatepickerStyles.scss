@@ -31,11 +31,11 @@
 .select-date__img-datepicker {
     width: 18px;
     height: 18px;
-    position: absolute;
-    top: 30%;
+    position: relative;
+    top: -50%;
+    left: 85%;
     background-size: cover;
     background-repeat: no-repeat;
-    right: 18px;
     background-image: url('../../assets/images/icons/calendar.png');
     cursor: pointer;
 }
@@ -51,6 +51,6 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 
 @media screen and (max-device-width: 600px) {
     .select-date__img-datepicker {
-        top: 70%;
+        top: -2em;
     }
 }
