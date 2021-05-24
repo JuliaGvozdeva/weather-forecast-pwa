@@ -2,7 +2,7 @@
 @import './common/styles/common.scss';
 @import './components/Logo/LogoStyles.scss';
 @import './components/NearestWeather/NearestWeatherStyles.scss';
-@import './components/Select/SelectStyles.scss';
+@import './components/CitySelect/CitySelectStyles.scss';
 @import './components/WeatherCard/WeatherCardStyles.scss';
 @import './components/Slider/SliderStyles.scss';
 @import './components/Datepicker/DatepickerStyles.scss';
@@ -13,9 +13,6 @@
   text-align: center;
   padding: 0px 40px;
   box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  row-gap: 3em;
 }
 
 .weather-container {
@@ -23,6 +20,7 @@
   flex-direction: row;
   justify-content: space-between;
   column-gap: 1em;
+  margin: 50px 0px;
 }
 
 footer {

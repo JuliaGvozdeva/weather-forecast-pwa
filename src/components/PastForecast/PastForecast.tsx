@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import CitySelect from '../Select/CitySelect';
+import CitySelect from '../CitySelect/CitySelect';
 import { API, CITY_COORDINATES, COUNT_MILISEC } from '../../common/components/constants';
 import ErrorBlockSection from '../ErrorBlockSection/ErrorBlockSection';
 import { IWeatherDetails } from '../../common/interfaces/interfaces';
@@ -12,11 +12,11 @@ const PastForecast: React.FC = () => {
     const [weatherData, setWeatherData] = useState<IWeatherDetails>();
     const [date, setDate] = useState<number>();
 
-    const getCity = (returnCity: string): void => {
+    const changeCity = (returnCity: string): void => {
         setCity(returnCity.toLowerCase());
     };
 
-    const getDate = (returnDate: Date | string): void => {
+    const changeDate = (returnDate: Date | string): void => {
         const newDate = new Date(returnDate).getTime();
         setDate(newDate / COUNT_MILISEC);
     };
@@ -54,8 +54,8 @@ const PastForecast: React.FC = () => {
             <div className='forecast-container__details'>
                 <h1 className='forecast-container__title'>Forecast for a Date in the Past</h1>
                 <div className="forecast-container__selects">
-                    <CitySelect getCity={getCity} />
-                    <Datepicker getDate={getDate} />
+                    <CitySelect changeCity={changeCity} />
+                    <Datepicker changeDate={changeDate} />
                 </div>
             </div>
             <div className="forecast-container__card">

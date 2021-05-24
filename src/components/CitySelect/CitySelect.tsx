@@ -3,10 +3,10 @@ import SelectArrowBottom from '../../assets/images/icons/chevron-bottom.png';
 import SelectArrowTop from '../../assets/images/icons/chevron-top.png';
 
 interface IProps {
-  getCity: (city: string) => void;
+  changeCity: (city: string) => void;
 }
 
-const CitySelect: React.FC<IProps> = ({ getCity }) => {
+const Select: React.FC<IProps> = ({ changeCity }) => {
   const [city, setCity] = useState<string>('Select city');
   const cities: Array<string> = ['Samara', 'Tolyatti', 'Saratov', 'Kazan', 'Krasnodar'];
   const [toggleSelect, setToggleSelect] = useState<boolean>(false);
@@ -19,7 +19,7 @@ const CitySelect: React.FC<IProps> = ({ getCity }) => {
   const selectCity = (event: React.MouseEvent<HTMLLIElement>): void => {
     const target: any = event.target;
     setCity(target.innerText);
-    getCity(target.innerText);
+    changeCity(target.innerText);
   };
 
   window.addEventListener('click', (event: any) => {
@@ -48,4 +48,4 @@ const CitySelect: React.FC<IProps> = ({ getCity }) => {
   );
 };
 
-export default CitySelect;
+export default Select;

@@ -1,10 +1,10 @@
 .forecast-container__title {
-  color: $base-font-color;
-  font-style: normal;
-  font-weight: bold;
-  font-size: 32px;
-  line-height: 32px;
-  text-align: left;
+    color: $base-font-color;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 32px;
+    line-height: 32px;
+    text-align: left;
 }
 
 .error-container {
@@ -20,15 +20,17 @@
 }
 
 .forecast-container__selects {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+    column-gap: 1em;
+    row-gap: 1em;
+    flex-wrap: wrap;
 }
 
 @media screen and (max-device-width: 600px) {
-  .forecast-container__selects {
-    flex-direction: column;
-    row-gap: 1em;
-  }
+    .forecast-container__selects {
+      flex-direction: column;
+    }
 }
