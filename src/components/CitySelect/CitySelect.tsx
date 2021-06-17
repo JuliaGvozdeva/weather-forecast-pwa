@@ -35,8 +35,8 @@ const CitySelect: React.FC<IProps> = ({ changeCity }) => {
         <img src={toggleSelect ? SelectArrowTop : SelectArrowBottom} alt='select arrow' />
       </div>
       {
-        toggleSelect ?
-          <ul className='select-city__optgroup'>
+        toggleSelect
+          ? <ul className='select-city__optgroup'>
             {
               cities.map((city) => {
                 return <li id={city} className='select-city__select-item' key={city} value={city} onClick={selectCity}>{city}</li>;
