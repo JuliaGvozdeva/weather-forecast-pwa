@@ -22,6 +22,7 @@ const NearestWeather: React.FC = () => {
           if (response.ok) {
             return response.json();
           }
+          return false;
         })
         .then((data) => {
           if (data.daily) {
@@ -30,7 +31,7 @@ const NearestWeather: React.FC = () => {
                 dateTime: day.dt,
                 temp: day.temp.eve,
                 icon: day.weather[0].icon,
-                description: day.weather[0].main
+                description: day.weather[0].main,
               };
               return details;
             });
@@ -44,16 +45,19 @@ const NearestWeather: React.FC = () => {
   }, [city]);
 
   return (
-    <section className='forecast-container'>
-      <div className='forecast-container__details'>
-        <h2 className='forecast-container__title'>7 Days Forecast</h2>
+    <section className="forecast-container">
+      <div className="forecast-container__details">
+        <h2 className="forecast-container__title">7 Days Forecast</h2>
         <div className="forecast-container__selects">
           <CitySelect changeCity={changeCity} />
         </div>
       </div>
 
-      {city === '' ? <div className="forecast-container__card"><ErrorBlockSection errorText={'Fill in all the fields and the weather will be displayed'} />
-      </div> : <Slider weatherData={weatherData} />}
+      {city === '' ? (
+        <div className="forecast-container__card">
+          <ErrorBlockSection errorText="Fill in all the fields and the weather will be displayed" />
+        </div>
+      ) : <Slider weatherData={weatherData} />}
     </section>
   );
 };

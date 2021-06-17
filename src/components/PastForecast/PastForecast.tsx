@@ -31,6 +31,7 @@ const PastForecast: React.FC = () => {
           if (response.ok) {
             return response.json();
           }
+          return false;
         })
         .then((data) => {
           if (data) {
@@ -38,7 +39,7 @@ const PastForecast: React.FC = () => {
               dateTime: data.current.dt,
               temp: data.current.temp,
               icon: data.current.weather[0].icon,
-              description: data.current.weather[0].main
+              description: data.current.weather[0].main,
             };
             setWeatherData(details);
           }
@@ -50,16 +51,16 @@ const PastForecast: React.FC = () => {
   }, [city, date]);
 
   return (
-    <section className='forecast-container'>
-      <div className='forecast-container__details'>
-        <h2 className='forecast-container__title'>Forecast for a Date in the Past</h2>
+    <section className="forecast-container">
+      <div className="forecast-container__details">
+        <h2 className="forecast-container__title">Forecast for a Date in the Past</h2>
         <div className="forecast-container__selects">
           <CitySelect changeCity={changeCity} />
           <Datepicker changeDate={changeDate} />
         </div>
       </div>
       <div className="forecast-container__card">
-        {city === '' || !date || !weatherData ? <ErrorBlockSection errorText={'Fill in all the fields and the weather will be displayed'} /> : <WeatherCard dayData={weatherData} />}
+        {city === '' || !date || !weatherData ? <ErrorBlockSection errorText="Fill in all the fields and the weather will be displayed" /> : <WeatherCard dayData={weatherData} />}
       </div>
     </section>
   );
