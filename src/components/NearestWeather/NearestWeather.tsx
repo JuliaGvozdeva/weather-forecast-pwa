@@ -44,9 +44,9 @@ const NearestWeather: React.FC = () => {
   }, [city]);
 
   return (
-    <div className='forecast-container'>
+    <section className='forecast-container'>
       <div className='forecast-container__details'>
-        <h1 className='forecast-container__title'>7 Days Forecast</h1>
+        <h2 className='forecast-container__title'>7 Days Forecast</h2>
         <div className="forecast-container__selects">
           <CitySelect changeCity={changeCity} />
         </div>
@@ -54,7 +54,7 @@ const NearestWeather: React.FC = () => {
 
       {city === '' ? <div className="forecast-container__card"><ErrorBlockSection errorText={'Fill in all the fields and the weather will be displayed'} />
       </div> : <Slider weatherData={weatherData} />}
-    </div>
+    </section>
   );
 };
 

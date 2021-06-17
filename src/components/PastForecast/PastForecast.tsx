@@ -50,9 +50,9 @@ const PastForecast: React.FC = () => {
   }, [city, date]);
 
   return (
-    <div className='forecast-container'>
+    <section className='forecast-container'>
       <div className='forecast-container__details'>
-        <h1 className='forecast-container__title'>Forecast for a Date in the Past</h1>
+        <h2 className='forecast-container__title'>Forecast for a Date in the Past</h2>
         <div className="forecast-container__selects">
           <CitySelect changeCity={changeCity} />
           <Datepicker changeDate={changeDate} />
@@ -61,7 +61,7 @@ const PastForecast: React.FC = () => {
       <div className="forecast-container__card">
         {city === '' || !date || !weatherData ? <ErrorBlockSection errorText={'Fill in all the fields and the weather will be displayed'} /> : <WeatherCard dayData={weatherData} />}
       </div>
-    </div>
+    </section>
   );
 };
 

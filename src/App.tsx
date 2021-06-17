@@ -6,14 +6,16 @@ import PastForecast from './components/PastForecast/PastForecast';
 
 const App: React.FC = () => {
   return (
-    <div className="app-container">
-      <Logo />
+    <main className="app-container">
+      <header>
+        <Logo />
+      </header>
       <div className='weather-container'>
         <NearestWeather />
         <PastForecast />
       </div>
       <footer>C ЛЮБОВЬЮ ОТ MERCURY DEVELOPMENT</footer>
-    </div>
+    </main>
   );
 };
 
