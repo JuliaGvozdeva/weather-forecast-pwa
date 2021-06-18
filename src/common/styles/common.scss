@@ -1,3 +1,7 @@
+.logo {
+    margin-top: 65px;
+}
+
 .forecast-container__title {
     color: $base-font-color;
     font-style: normal;
@@ -27,6 +31,12 @@
     column-gap: 1em;
     row-gap: 1em;
     flex-wrap: wrap;
+}
+
+@media screen and (max-device-width: 775px) {
+    .logo img{
+      width: 243px;
+    }
 }
 
 @media screen and (max-device-width: 600px) {

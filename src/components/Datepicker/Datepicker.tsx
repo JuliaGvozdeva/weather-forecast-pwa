@@ -18,7 +18,7 @@ const Datepicker: React.FC<IProps> = ({ changeDate }: IProps) => {
   const minDatepicerDate = `${today.getFullYear()}-${getMonth(today)}-${today.getDate()}`;
 
   const handleInputDateTypeChange = (focusEvent: React.FocusEvent<HTMLInputElement>
-    | React.ChangeEvent<HTMLInputElement>): void => {
+  | React.ChangeEvent<HTMLInputElement>): void => {
     focusEvent.currentTarget.type = 'text';
     focusEvent.currentTarget.placeholder = 'Select date';
     setToggleCalendarIcon(true);
