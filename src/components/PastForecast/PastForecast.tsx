@@ -9,7 +9,7 @@ import WeatherCard from '../WeatherCard/WeatherCard';
 const PastForecast: React.FC = () => {
   const KEY = process.env.REACT_APP_WEATHER_API_KEY;
   const [city, setCity] = useState<string>('');
-  const [weatherData, setWeatherData] = useState<IWeatherDetails>();
+  const [pastWeatherData, setPastWeatherData] = useState<IWeatherDetails>();
   const [date, setDate] = useState<number>();
 
   const changeCity = (returnCity: string): void => {
@@ -33,15 +33,15 @@ const PastForecast: React.FC = () => {
           }
           return false;
         })
-        .then((data) => {
-          if (data) {
-            const details: IWeatherDetails = {
-              dateTime: data.current.dt,
-              temp: data.current.temp,
-              icon: data.current.weather[0].icon,
-              description: data.current.weather[0].main,
+        .then((pastDayData) => {
+          if (pastDayData) {
+            const weatherDetails: IWeatherDetails = {
+              dateTime: pastDayData.current.dt,
+              temp: pastDayData.current.temp,
+              icon: pastDayData.current.weather[0].icon,
+              description: pastDayData.current.weather[0].main,
             };
-            setWeatherData(details);
+            setPastWeatherData(weatherDetails);
           }
         })
         .catch((error) => {
@@ -60,7 +60,7 @@ const PastForecast: React.FC = () => {
         </div>
       </div>
       <div className="forecast-container__card">
-        {city === '' || !date || !weatherData ? <ErrorBlockSection errorText="Fill in all the fields and the weather will be displayed" /> : <WeatherCard dayData={weatherData} />}
+        {city === '' || !date || !pastWeatherData ? <ErrorBlockSection errorText="Fill in all the fields and the weather will be displayed" /> : <WeatherCard dayData={pastWeatherData} />}
       </div>
     </section>
   );

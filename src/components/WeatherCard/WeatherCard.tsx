@@ -13,6 +13,7 @@ const WeatherCard: React.FC<IProps> = ({ dayData }: IProps) => {
   const temp: number = Math.ceil(dayData.temp);
   const altIcon = `${dayData.description} img`;
   const iconUrl = `http://openweathermap.org/img/wn/${dayData.icon}@4x.png`;
+
   return (
     <div className="card-container">
       <div className="card-container__date">{dateWithFormat}</div>

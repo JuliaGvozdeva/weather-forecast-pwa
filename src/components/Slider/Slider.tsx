@@ -32,9 +32,9 @@ const Slider: React.FC<IProps> = ({ weatherData }: IProps) => {
     const listOfWeatherCards: ReactElement[] = [];
     const endCardIdx: number = currentStartItem + COUNT_CARD;
 
-    for (let i = currentStart; i < endCardIdx; i += 1) {
-      const dayData: IWeatherDetails = weatherData[i];
-      listOfWeatherCards.push(<WeatherCard key={i} dayData={dayData} />);
+    for (let index = currentStart; index < endCardIdx; index += 1) {
+      const dayData: IWeatherDetails = weatherData[index];
+      listOfWeatherCards.push(<WeatherCard key={index} dayData={dayData} />);
     }
 
     return listOfWeatherCards;
@@ -44,13 +44,13 @@ const Slider: React.FC<IProps> = ({ weatherData }: IProps) => {
     return (
       <div className="slider-container">
         <div className="slider-container__btn">
-          <img className="slider-container__btn_prev" src={currentStartItem !== 0 ? arrowActive : arrowDisabled} alt="slider-arrow" onClick={handleClickPrev} role="presentation" />
+          <img className="slider-container__btn_prev" src={currentStartItem !== 0 ? arrowActive : arrowDisabled} alt="slider arrow" onClick={handleClickPrev} role="presentation" />
         </div>
         <div className="slider-container__card-list">
           {getCardsList(currentStartItem)}
         </div>
         <div className="slider-container__btn">
-          <img className="slider-container__btn_next" src={currentStartItem !== maxUpdateCardCurent ? arrowActive : arrowDisabled} alt="slider-arrow" onClick={handleClickNext} role="presentation" />
+          <img className="slider-container__btn_next" src={currentStartItem !== maxUpdateCardCurent ? arrowActive : arrowDisabled} alt="slider arrow" onClick={handleClickNext} role="presentation" />
         </div>
       </div>
     );

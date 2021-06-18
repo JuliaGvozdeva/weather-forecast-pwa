@@ -11,28 +11,28 @@ const CitySelect: React.FC<IProps> = ({ changeCity }: IProps) => {
   const cities: Array<string> = ['Samara', 'Tolyatti', 'Saratov', 'Kazan', 'Krasnodar'];
   const [toggleSelect, setToggleSelect] = useState<boolean>(false);
 
-  const toggleOptGroup = (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+  const toggleOptionGroup = (mouseEvent: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     setToggleSelect(!toggleSelect);
-    event.stopPropagation();
+    mouseEvent.stopPropagation();
   };
 
-  const selectCity = (event: React.MouseEvent<HTMLLIElement>): void => {
-    const target = event.target as HTMLElement;
+  const selectCity = (mouseEvent: React.MouseEvent<HTMLLIElement>): void => {
+    const target = mouseEvent.target as HTMLElement;
     setCity(target.innerText);
     changeCity(target.innerText);
   };
 
-  window.addEventListener('click', (event: any) => {
+  window.addEventListener('click', (clickEvent: any) => {
     if (toggleSelect) {
-      toggleOptGroup(event);
+      toggleOptionGroup(clickEvent);
     }
   });
 
   return (
-    <div className="select-city" id="select" onClick={toggleOptGroup} role="presentation">
+    <div className="select-city" id="select" onClick={toggleOptionGroup} role="presentation">
       <div className="select-city__text">{city}</div>
       <div className="select-city__arrow">
-        <img src={toggleSelect ? SelectArrowTop : SelectArrowBottom} alt="select arrow" />
+        <img src={toggleSelect ? SelectArrowTop : SelectArrowBottom} alt="select arrow img" />
       </div>
       {
         toggleSelect

@@ -17,28 +17,28 @@ const Datepicker: React.FC<IProps> = ({ changeDate }: IProps) => {
   today.setDate(today.getDate() - countDaysRange);
   const minDatepicerDate = `${today.getFullYear()}-${getMonth(today)}-${today.getDate()}`;
 
-  const handleInputDateTypeChange = (event: React.FocusEvent<HTMLInputElement>
-  | React.ChangeEvent<HTMLInputElement>): void => {
-    event.currentTarget.type = 'text';
-    event.currentTarget.placeholder = 'Select date';
+  const handleInputDateTypeChange = (focusEvent: React.FocusEvent<HTMLInputElement>
+    | React.ChangeEvent<HTMLInputElement>): void => {
+    focusEvent.currentTarget.type = 'text';
+    focusEvent.currentTarget.placeholder = 'Select date';
     setToggleCalendarIcon(true);
   };
 
-  const handleDateChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
-    changeDate(event.target.value);
-    const selectedDate = new Date(event.target.value);
+  const handleDateChange = (changeEvent: React.ChangeEvent<HTMLInputElement>): void => {
+    changeDate(changeEvent.target.value);
+    const selectedDate = new Date(changeEvent.target.value);
     setPastDate(`${getMonth(selectedDate)}/${selectedDate.getDate()}/${selectedDate.getFullYear()}`);
-    handleInputDateTypeChange(event);
+    handleInputDateTypeChange(changeEvent);
   };
 
-  const handleTextTypeChange = (event: React.FocusEvent<HTMLInputElement>): void => {
-    event.currentTarget.type = 'date';
-    event.currentTarget.placeholder = 'mm/dd/yyy';
+  const handleTextTypeChange = (focusEvent: React.FocusEvent<HTMLInputElement>): void => {
+    focusEvent.currentTarget.type = 'date';
+    focusEvent.currentTarget.placeholder = 'mm/dd/yyy';
     setToggleCalendarIcon(false);
   };
 
-  const changeInputTextTypeByClick = (event: any): void => {
-    event.target.parentNode.children[0].type = 'date';
+  const changeInputTextTypeByClick = (clickEvent: any): void => {
+    clickEvent.target.parentNode.children[0].type = 'date';
     setToggleCalendarIcon(false);
   };
 

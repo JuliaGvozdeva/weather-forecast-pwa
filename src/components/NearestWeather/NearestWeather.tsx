@@ -6,7 +6,7 @@ import Slider from '../Slider/Slider';
 import { IWeatherDetails } from '../../common/interfaces/interfaces';
 
 const NearestWeather: React.FC = () => {
-  const KEY = process.env.REACT_APP_WEATHER_API_KEY;
+  const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
   const [city, setCity] = useState<string>('');
   const [weatherData, setWeatherData] = useState<Array<IWeatherDetails> | []>([]);
   const changeCity = (returnCity: string): void => {
@@ -16,7 +16,7 @@ const NearestWeather: React.FC = () => {
     if (city !== '') {
       const cityLat: number = CITY_COORDINATES[city].lat;
       const cityLon: number = CITY_COORDINATES[city].lon;
-      const url = `${API}/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=minutely,hourly,alerts,&units=metric&appid=${KEY}`;
+      const url = `${API}/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=minutely,hourly,alerts,&units=metric&appid=${WEATHER_API_KEY}`;
       fetch(url)
         .then((response) => {
           if (response.ok) {
@@ -24,9 +24,9 @@ const NearestWeather: React.FC = () => {
           }
           return false;
         })
-        .then((data) => {
-          if (data.daily) {
-            const daylyDetails = data.daily.map((day: any) => {
+        .then((dailyWeatherInfo) => {
+          if (dailyWeatherInfo.daily) {
+            const daylyDetails = dailyWeatherInfo.daily.map((day: any) => {
               const details: IWeatherDetails = {
                 dateTime: day.dt,
                 temp: day.temp.eve,
