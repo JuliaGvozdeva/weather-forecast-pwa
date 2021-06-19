@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import CitySelect from '../CitySelect/CitySelect';
-import { API, CITY_COORDINATES, COUNT_MILISEC } from '../../common/components/constants';
+import { COUNT_MILISEC } from '../../common/components/constants';
 import ErrorBlockSection from '../ErrorBlockSection/ErrorBlockSection';
 import { IWeatherDetails } from '../../common/interfaces/interfaces';
 import Datepicker from '../Datepicker/Datepicker';
 import WeatherCard from '../WeatherCard/WeatherCard';
+import { getPastForecastInfo } from '../../services/requestLibrary';
 
 const PastForecast: React.FC = () => {
-  const KEY = process.env.REACT_APP_WEATHER_API_KEY;
   const [city, setCity] = useState<string>('');
   const [pastWeatherData, setPastWeatherData] = useState<IWeatherDetails>();
   const [date, setDate] = useState<number>();
@@ -23,30 +23,9 @@ const PastForecast: React.FC = () => {
 
   useEffect(() => {
     if (city && date) {
-      const cityLat: number = CITY_COORDINATES[city].lat;
-      const cityLon: number = CITY_COORDINATES[city].lon;
-      const url = `${API}/data/2.5/onecall/timemachine?lat=${cityLat}&lon=${cityLon}&dt=${date}&units=metric&appid=${KEY}`;
-      fetch(url)
-        .then((response) => {
-          if (response.ok) {
-            return response.json();
-          }
-          return false;
-        })
-        .then((pastDayData) => {
-          if (pastDayData) {
-            const weatherDetails: IWeatherDetails = {
-              dateTime: pastDayData.current.dt,
-              temp: pastDayData.current.temp,
-              icon: pastDayData.current.weather[0].icon,
-              description: pastDayData.current.weather[0].main,
-            };
-            setPastWeatherData(weatherDetails);
-          }
-        })
-        .catch((error) => {
-          console.error(error);
-        });
+      getPastForecastInfo(city, date).then((pastForecastData: any) => {
+        setPastWeatherData(pastForecastData);
+      });
     }
   }, [city, date]);
 
