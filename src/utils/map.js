@@ -1,15 +1,15 @@
-Array.prototype.map = function (callback) {
-    return this.reduce(function (acc, currentValue) {
+const map = (callback, collection) => {
+    return collection.reduce((acc, currentValue) => {
         acc.push(callback(currentValue));
         return acc;
     }, []);
 };
 
-Array.prototype.filter = function (callback) {
-    return this.reduce(function (acc, currentValue) {
-        if (callback(currentValue)) {
+const filter = (predicate, collection) => {
+    return collection.reduce((acc, currentValue) => {
+        if (predicate(currentValue)) {
             acc.push(currentValue);
         }
         return acc;
     }, []);
-}
+};
