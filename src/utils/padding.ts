@@ -1,20 +1,21 @@
 type PaddingValue = `${number} px`;
 
-interface Padding {
+type Padding = {
   top: PaddingValue,
   right: PaddingValue,
   bottom: PaddingValue,
   left: PaddingValue
-}
+};
 
 const createPadding = (paddingTop: number, paddingRight: number, paddingBottom: number, paddingLeft: number): Padding => {
-  return {
-    top: `${paddingTop} px`,
-    right: `${paddingRight} px`,
-    bottom: `${paddingBottom} px`,
-    left: `${paddingLeft} px`,
-  }
-}
+  const paddingValue: Padding = {
+    top: `${paddingTop} px` as PaddingValue,
+    right: `${paddingRight} px` as PaddingValue,
+    bottom: `${paddingBottom} px` as PaddingValue,
+    left: `${paddingLeft} px` as PaddingValue
+  };
+  return paddingValue;
+};
 
 function padding(): Padding;
 function padding(padding: number): Padding;
