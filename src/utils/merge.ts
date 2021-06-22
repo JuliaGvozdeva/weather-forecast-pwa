@@ -1,15 +1,3 @@
-type userName = {
-  firstName: string,
-  lastName: string
-}
-
-type userAge = {
-  age: {
-    dateOfBirdth: string,
-    fullAge: number
-  }
-}
-
-function merge(firstObj: userName, secondObj: userAge): userName & userAge {
+function merge<T, V>(firstObj: T, secondObj: V): T & V {
   return { ...firstObj, ...secondObj };
 }
