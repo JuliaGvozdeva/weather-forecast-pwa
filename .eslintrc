@@ -5,17 +5,19 @@
       "@typescript-eslint"
     ],
     "extends" : [
-        "standart",
+        "airbnb-typescript",
         "plugin:@typescript-eslint/eslint-recommended",
         "plugin:@typescript-eslint/recommended"
     ],
     "rules": {
-        "semi": [2, "always"]
+        "semi": [2, "always"],
+        "no-param-reassign": 0
     },
     "parserOptions": {
         "ecmaFeatures": {
             "jsx": true,
             "modules": true
-        }
+        },
+        "project": "./tsconfig.json"
     }
 }
