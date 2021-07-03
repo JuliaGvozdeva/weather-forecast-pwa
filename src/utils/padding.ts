@@ -34,3 +34,5 @@ function padding(top?: number, right?: number, bottom?: number, left?: number): 
   }
   return createPadding(top as number, right as number, bottom as number, left as number);
 }
+
+export { padding };
