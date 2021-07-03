@@ -1,26 +1,10 @@
-image: node:12
-stages:
-  - build
-  - deploy
-
-build:
-  stage: build
-  script:
-    - npm ci
-    - npm run build
-  artifacts:
-    paths:
-      - build
-
+image: alpine:latest
 pages:
-  image: alpine:latest
   stage: deploy
-  variables:
-    GIT_STRATEGY: none  
   script:
-    - mv public public
-  only:
-    - master
+  - echo 'Nothing to do...'
   artifacts:
     paths:
-      - public
+    - public/
+  only:
+  - master
