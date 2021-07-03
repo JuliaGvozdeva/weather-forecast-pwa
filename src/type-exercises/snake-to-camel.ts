@@ -1,7 +1,7 @@
 export type SnakeToCamel<S extends string> =
     S extends `${infer P1}_${infer P2}`
-    ? `${Lowercase<P1>}${Capitalize<SnakeToCamel<P2>>}`
-    : Lowercase<S>;
+      ? `${Lowercase<P1>}${Capitalize<SnakeToCamel<P2>>}`
+      : Lowercase<S>;
 
 type BurgersAreAwesome1 = SnakeToCamel<'burgers_are_awesome'>; // expected to be `buregersAreAwesome`
 type BurgersAreAwesome2 = SnakeToCamel<'BurgersAre_awesome'>; // expected to be `buregersareAwesome`
