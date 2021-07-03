@@ -1,10 +1,42 @@
+image: node:12
+stages:
+  - build
+  - test
+  - deploy
+
+build:
+  stage: build
+  script:
+    - yarn install --frozen-lockfile
+    - yarn build
+  artifacts:
+    paths:
+      - build
+
+test:
+  stage: test
+  script:
+    - yarn install --frozen-lockfile
+    - yarn test --coverage --reporters=jest-junit
+  artifacts:
+    when: always
+    paths:
+      - junit.xml
+      - coverage/clover.xml
+    reports:
+      junit: junit.xml
+      cobertura: coverage/clover.xml
+
 pages:
   image: alpine:latest
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none        # Do not clone git repo
   script:
-  - mkdir -p ./public
-  - cp ./*.html ./public/
+    # Rename the CRA `build` folder to `public`
+    - mv build public
   only:
     - master
   artifacts:
     paths:
-    - public
+      - public
