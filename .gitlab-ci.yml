@@ -1,7 +1,6 @@
 image: node 12
 stages:
   - build
-  - test
   - deploy
 
 build:
