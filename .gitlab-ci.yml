@@ -19,7 +19,7 @@ build:
   script:
     - yarn install --frozen-lockfile
     - yarn build
-  rtifacts:
+  artifacts:
     paths:
       - build
 
