@@ -22,7 +22,7 @@ function padding(padding: number): Padding;
 function padding(paddingHorizontal: number, paddingVertical: number): Padding;
 function padding(paddingTop: number, paddingHorizontal: number, paddingBottom: number): Padding;
 function padding(paddingTop: number, paddingRight: number, paddingBottom: number, paddingLeft: number): Padding;
-function padding(top?: number, right?: number, bottom?: number, left?: number): Padding {
+function padding (top?: number, right?: number, bottom?: number, left?: number): Padding {
   if (top === undefined && right === undefined && bottom === undefined && left === undefined) {
     return createPadding(0, 0, 0, 0);
   } else if (top !== undefined && right === undefined && bottom === undefined && left === undefined) {
