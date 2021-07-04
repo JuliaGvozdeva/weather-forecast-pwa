@@ -2,6 +2,7 @@ image: node:12
 stages:
   - build
   - test
+  - deploy
   
 cache:
   key: $CI_COMMIT_REF_SLUG
@@ -11,17 +12,32 @@ cache:
 before_script:
   - npm ci --cache .npm --prefer-offline
 
-pages:
+build:
   stage: build
   variables:
     PUBLIC_URL: https://yulya96gvozdeva96.gitlab.io/weather-forecast
   script:
-    - npm run build
-  artifacts:
+    - yarn install --frozen-lockfile
+    - yarn build
+  rtifacts:
     paths:
-      - public
+      - build
 
 test_linter:
   stage: test
   script:
     - npm run lint
+
+pages:
+  image: alpine:latest
+  stage: deploy
+  variables:
+    GIT_STRATEGY: none        # Do not clone git repo
+  script:
+    # Rename the CRA `build` folder to `public`
+    - mv build public
+  only:
+    - master
+  artifacts:
+    paths:
+      - public
