@@ -1,18 +1,6 @@
 image: node:12
 stages:
-  - build
   - deploy
-
-build:
-  stage: build
-  variables:
-    PUBLIC_URL: https://gitlab.com/yulya96gvozdeva96/weather-forecast
-  script:
-    - npm ci
-    - npm run build
-  artifacts:
-    paths:
-      - build
 
 pages:
   image: alpine:latest
