@@ -8,8 +8,8 @@ build:
   variables:
     PUBLIC_URL: https://gitlab.com/yulya96gvozdeva96/weather-forecast
   script:
-    - yarn install --frozen-lockfile
-    - yarn build
+    - npm install
+    - npm run build
   artifacts:
     paths:
       - build
