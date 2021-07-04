@@ -12,3 +12,8 @@ pages:
   artifacts:
     paths:
       - public
+
+test_linter:
+  stage: test
+  script:
+    - npm run lint
