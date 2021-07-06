@@ -17,6 +17,7 @@ build:
   variables:
     PUBLIC_URL: https://yulya96gvozdeva96.gitlab.io/weather-forecast
   script:
+    - npm ci
     - npm run build
   artifacts:
     paths:
