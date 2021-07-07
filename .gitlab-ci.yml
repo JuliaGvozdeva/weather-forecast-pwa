@@ -18,8 +18,6 @@ build:
     PUBLIC_URL: https://yulya96gvozdeva96.gitlab.io/weather-forecast
   script:
     - npm ci
-    - npm install workbox-cli
-    - npm run server-workers
     - npm run build
   artifacts:
     paths:
