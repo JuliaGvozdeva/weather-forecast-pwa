@@ -27,7 +27,7 @@
   "predeploy": "npm run build",
   "deploy": "gh-pages -d build"
  },
- "homepage": "https://juliagvozdeva.github.io/weather-forecast",
+ "homepage": "https://yulya96gvozdeva96.gitlab.io/weather-forecast",
  "eslintConfig": {
   "extends": [
    "react-app",
