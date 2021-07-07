@@ -18,8 +18,8 @@
  },
  "scripts": {
   "start": "react-scripts start",
-  "build": "react-scripts build",
-  "server-workers": "npx workbox-cli generateSW workbox-config.js",
+  "build": "npm install -g workbox-cli && workbox generateSW workbox-config.js && react-scripts build",
+  "server-workers": "workbox generateSW workbox-config.js",
   "test": "react-scripts test",
   "eject": "react-scripts eject",
   "lint": "eslint src/**/*.ts{,x}",
