@@ -14,3 +14,7 @@ const map = (callback, collection) => {
     return [...acc, callback(currentValue)];
   }, []);
 };
+
+export {
+  map
+};

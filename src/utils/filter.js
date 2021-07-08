@@ -17,3 +17,7 @@ const filter = (predicate, collection) => {
         return mergedArray;
     }, []);
 };
+
+export {
+    filter
+};
