@@ -19,7 +19,7 @@
  },
  "scripts": {
   "start": "react-scripts start",
-  "build": "npm install -g workbox-cli && workbox generateSW workbox-config.js && react-scripts build",
+  "build": "workbox generateSW workbox-config.js && react-scripts build",
   "server-workers": "workbox generateSW workbox-config.js",
   "test": "react-scripts test",
   "eject": "react-scripts eject",
