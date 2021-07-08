@@ -70,6 +70,8 @@ self.addEventListener('fetch', (event) => {
 
                 return response;
             });
+        }).catch(() => {
+            alert("No information!");
         })
     );
 });
