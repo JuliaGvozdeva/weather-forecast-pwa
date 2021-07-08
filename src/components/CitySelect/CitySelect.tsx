@@ -6,43 +6,43 @@ interface IProps {
   changeCity: (city: string) => void;
 }
 
-const CitySelect: React.FC<IProps> = ({ changeCity }) => {
+const CitySelect: React.FC<IProps> = ({ changeCity }: IProps) => {
   const [city, setCity] = useState<string>('Select city');
   const cities: Array<string> = ['Samara', 'Tolyatti', 'Saratov', 'Kazan', 'Krasnodar'];
   const [toggleSelect, setToggleSelect] = useState<boolean>(false);
 
-  const toggleOptGroup = (event: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
+  const toggleOptionGroup = (mouseEvent: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
     setToggleSelect(!toggleSelect);
-    event.stopPropagation();
+    mouseEvent.stopPropagation();
   };
 
-  const selectCity = (event: React.MouseEvent<HTMLLIElement>): void => {
-    const target: any = event.target;
+  const selectCity = (mouseEvent: React.MouseEvent<HTMLLIElement>): void => {
+    const target = mouseEvent.target as HTMLElement;
     setCity(target.innerText);
     changeCity(target.innerText);
   };
 
-  window.addEventListener('click', (event: any) => {
+  window.addEventListener('click', (clickEvent: any) => {
     if (toggleSelect) {
-      toggleOptGroup(event);
+      toggleOptionGroup(clickEvent);
     }
   });
 
   return (
-    <div className='select-city' id='select' onClick={toggleOptGroup}>
-      <div className='select-city__text'>{city}</div>
-      <div className='select-city__arrow'>
-        <img src={toggleSelect ? SelectArrowTop : SelectArrowBottom} alt='select arrow' />
+    <div className="select-city" id="select" onClick={toggleOptionGroup} role="presentation">
+      <div className="select-city__text">{city}</div>
+      <div className="select-city__arrow">
+        <img src={toggleSelect ? SelectArrowTop : SelectArrowBottom} alt="select arrow img" />
       </div>
       {
         toggleSelect
-          ? <ul className='select-city__optgroup'>
-            {
-              cities.map((city) => {
-                return <li id={city} className='select-city__select-item' key={city} value={city} onClick={selectCity}>{city}</li>;
-              })
-            }
-          </ul> : null
+          ? (
+            <ul className="select-city__optgroup">
+              {
+                cities.map((cityName) => <li id={cityName} className="select-city__select-item" key={cityName} value={cityName} onClick={selectCity} role="presentation">{cityName}</li>)
+              }
+            </ul>
+          ) : null
       }
     </div>
   );

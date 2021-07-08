@@ -10,10 +10,10 @@ interface IProps {
   weatherData: Array<IWeatherDetails> | []
 }
 
-const Slider: React.FC<IProps> = ({ weatherData }) => {
+const Slider: React.FC<IProps> = ({ weatherData }: IProps) => {
   const [currentStartItem, setCurrentStartItem] = useState<number>(0);
-  const minResolurion = 660;
-  const COUNT_CARD = window.screen.availWidth > minResolurion ? COUNT_CARDS_WEB : COUNT_CARDS_MOBILE;
+  const minResolut = 660;
+  const COUNT_CARD = window.screen.availWidth > minResolut ? COUNT_CARDS_WEB : COUNT_CARDS_MOBILE;
   const maxUpdateCardCurent = COUNT_WEATHER_CARDS_ALL - COUNT_CARD;
 
   const handleClickPrev = (): void => {
@@ -32,9 +32,9 @@ const Slider: React.FC<IProps> = ({ weatherData }) => {
     const listOfWeatherCards: ReactElement[] = [];
     const endCardIdx: number = currentStartItem + COUNT_CARD;
 
-    for (let i = currentStart; i < endCardIdx; i++) {
-      const dayData: IWeatherDetails = weatherData[i];
-      listOfWeatherCards.push(<WeatherCard key={i} dayData={dayData} />);
+    for (let index = currentStart; index < endCardIdx; index += 1) {
+      const dayData: IWeatherDetails = weatherData[index];
+      listOfWeatherCards.push(<WeatherCard key={index} dayData={dayData} />);
     }
 
     return listOfWeatherCards;
@@ -42,21 +42,20 @@ const Slider: React.FC<IProps> = ({ weatherData }) => {
 
   if (weatherData.length !== 0) {
     return (
-      <div className='slider-container'>
+      <div className="slider-container">
         <div className="slider-container__btn">
-          <img className='slider-container__btn_prev' src={currentStartItem !== 0 ? arrowActive : arrowDisabled} alt='slider-arrow' onClick={handleClickPrev} />
+          <img className="slider-container__btn_prev" src={currentStartItem !== 0 ? arrowActive : arrowDisabled} alt="slider arrow" onClick={handleClickPrev} role="presentation" />
         </div>
-        <div className='slider-container__card-list'>
+        <div className="slider-container__card-list">
           {getCardsList(currentStartItem)}
         </div>
         <div className="slider-container__btn">
-          <img className='slider-container__btn_next' src={currentStartItem !== maxUpdateCardCurent ? arrowActive : arrowDisabled} alt='slider-arrow' onClick={handleClickNext} />
+          <img className="slider-container__btn_next" src={currentStartItem !== maxUpdateCardCurent ? arrowActive : arrowDisabled} alt="slider arrow" onClick={handleClickNext} role="presentation" />
         </div>
       </div>
     );
-  } else {
-    return <ErrorBlockSection errorText={'There are no items. Please try again.'} />;
   }
+  return <ErrorBlockSection errorText="There are no items. Please try again." />;
 };
 
 export default Slider;
