@@ -3,9 +3,11 @@ import './App.scss';
 import NearestWeather from './components/NearestWeather/NearestWeather';
 import logo from './assets/images/logo.png';
 import PastForecast from './components/PastForecast/PastForecast';
+import NoNetworkImg from './components/NetworkStatus/NetworkStatus';
 
 const App: React.FC = () => (
   <main className="app-container">
+    <NoNetworkImg />
     <header>
       <div className="logo">
         <img src={logo} alt="logo" />
