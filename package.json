@@ -1,5 +1,5 @@
 {
- "name": "weather-forecast",
+ "name": "weather-forecast-pwa",
  "version": "0.1.0",
  "private": true,
  "dependencies": {
@@ -28,7 +28,7 @@
   "predeploy": "npm run build",
   "deploy": "gh-pages -d build"
  },
- "homepage": "https://yulya96gvozdeva96.gitlab.io/weather-forecast",
+ "homepage": "https://juliagvozdeva.github.io/weather-forecast-pwa/",
  "eslintConfig": {
   "extends": [
    "react-app",
