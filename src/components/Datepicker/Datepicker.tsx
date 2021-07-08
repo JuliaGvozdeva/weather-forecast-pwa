@@ -12,10 +12,11 @@ const Datepicker: React.FC<IProps> = ({ changeDate }: IProps) => {
   today.setDate(today.getDate() - 1);
 
   const getMonth = (todayMonth: Date): string => (todayMonth.getMonth() + 1 < 10 ? `0${todayMonth.getMonth() + 1}` : `${todayMonth.getMonth() + 1}`);
+  const getDay = (): string => (today.getMonth() < 10 ? `0${today.getDate()}` : `${today.getDate()}`);
 
-  const maxDatepicerDate = `${today.getFullYear()}-${getMonth(today)}-${today.getDate()}`;
+  const maxDatepicerDate = `${today.getFullYear()}-${getMonth(today)}-${getDay()}`;
   today.setDate(today.getDate() - countDaysRange);
-  const minDatepicerDate = `${today.getFullYear()}-${getMonth(today)}-${today.getDate()}`;
+  const minDatepicerDate = `${today.getFullYear()}-${getMonth(today)}-${getDay()}`;
 
   const handleInputDateTypeChange = (focusEvent: React.FocusEvent<HTMLInputElement>
   | React.ChangeEvent<HTMLInputElement>): void => {
