@@ -71,7 +71,7 @@ self.addEventListener('fetch', (event) => {
                 return response;
             });
         }).catch(() => {
-            alert("No information!");
+            document.querySelector(".error-container>p").innerHTML = "Cached resources not founded."
         })
     );
 });
