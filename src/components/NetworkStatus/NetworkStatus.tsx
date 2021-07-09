@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import NoNetworkImg from '../../assets/images/icons/cloud-network.png';
 
-const NetworkStatus = () => {
+const NetworkStatus: React.FC = () => {
   const [networkStatus, setNetworkStatus] = useState(navigator.onLine ? 'online' : 'offline');
-  window.addEventListener('load', function () {
-    function updateOnlineStatus(event?: any) {
+  window.addEventListener('load', () => {
+    function updateOnlineStatus() {
       const condition = navigator.onLine ? 'online' : 'offline';
       setNetworkStatus(condition);
     }
