@@ -3,9 +3,11 @@ import './App.scss';
 import NearestWeather from './components/NearestWeather/NearestWeather';
 import logo from './assets/images/logo.png';
 import PastForecast from './components/PastForecast/PastForecast';
+import NoNetworkImg from './components/NetworkStatus/NetworkStatus';
 
 const App: React.FC = () => (
   <main className="app-container">
+    <NoNetworkImg />
     <header>
       <div className="logo">
         <img src={logo} alt="logo" />
@@ -18,5 +20,15 @@ const App: React.FC = () => (
     <footer>C ЛЮБОВЬЮ ОТ MERCURY DEVELOPMENT</footer>
   </main>
 );
+
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js').then(function (registration) {
+    console.log('Service worker registration succeeded:', registration);
+  }, function (error) {
+    console.log('Service worker registration failed:', error);
+  });
+} else {
+  console.log('Service workers are not supported.');
+}
 
 export default App;

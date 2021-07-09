@@ -1,24 +1,26 @@
 {
-    "root": true,
-    "parser": "@typescript-eslint/parser",
-    "plugins": [
-      "@typescript-eslint"
-    ],
-    "extends" : [
-        "airbnb-typescript",
-        "plugin:@typescript-eslint/eslint-recommended",
-        "plugin:@typescript-eslint/recommended"
-    ],
-    "rules": {
-        "@typescript-eslint/no-explicit-any": "off",
-        "semi": [2, "always"],
-        "no-param-reassign": 0
+  "root": true,
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "@typescript-eslint"
+  ],
+  "extends" : [
+    "airbnb-typescript",
+    "plugin:@typescript-eslint/eslint-recommended",
+    "plugin:@typescript-eslint/recommended"
+  ],
+  "rules": {
+    "@typescript-eslint/no-explicit-any": "off",
+    "semi": [2, "always"],
+    "no-param-reassign": 0,
+    "linebreak-style": 0,
+    "prefer-arrow-callback": "off"
+  },
+  "parserOptions": {
+    "ecmaFeatures": {
+        "jsx": true,
+        "modules": true
     },
-    "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true,
-            "modules": true
-        },
-        "project": "./tsconfig.json"
-    }
+    "project": "./tsconfig.json"
+  }
 }

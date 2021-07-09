@@ -40,20 +40,22 @@ const Slider: React.FC<IProps> = ({ weatherData }: IProps) => {
     return listOfWeatherCards;
   };
 
-  if (weatherData.length !== 0) {
-    return (
-      <div className="slider-container">
-        <div className="slider-container__btn">
-          <img className="slider-container__btn_prev" src={currentStartItem !== 0 ? arrowActive : arrowDisabled} alt="slider arrow" onClick={handleClickPrev} role="presentation" />
+  if (weatherData !== undefined) {
+    if (weatherData.length !== 0) {
+      return (
+        <div className="slider-container">
+          <div className="slider-container__btn">
+            <img className="slider-container__btn_prev" src={currentStartItem !== 0 ? arrowActive : arrowDisabled} alt="slider arrow" onClick={handleClickPrev} role="presentation" />
+          </div>
+          <div className="slider-container__card-list">
+            {getCardsList(currentStartItem)}
+          </div>
+          <div className="slider-container__btn">
+            <img className="slider-container__btn_next" src={currentStartItem !== maxUpdateCardCurent ? arrowActive : arrowDisabled} alt="slider arrow" onClick={handleClickNext} role="presentation" />
+          </div>
         </div>
-        <div className="slider-container__card-list">
-          {getCardsList(currentStartItem)}
-        </div>
-        <div className="slider-container__btn">
-          <img className="slider-container__btn_next" src={currentStartItem !== maxUpdateCardCurent ? arrowActive : arrowDisabled} alt="slider arrow" onClick={handleClickNext} role="presentation" />
-        </div>
-      </div>
-    );
+      );
+    }
   }
   return <ErrorBlockSection errorText="There are no items. Please try again." />;
 };
