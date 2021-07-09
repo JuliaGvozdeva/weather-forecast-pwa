@@ -3,10 +3,31 @@ import { IWeatherDetails } from '../common/interfaces/interfaces';
 
 const WEATHER_API_KEY = process.env.REACT_APP_WEATHER_API_KEY;
 
-function getDailyWeatherInfo(city: string): Promise<Array<IWeatherDetails> | []> {
-  const cityLat: number = CITY_COORDINATES[city].lat;
-  const cityLon: number = CITY_COORDINATES[city].lon;
-  const url = `${API}/data/2.5/onecall?lat=${cityLat}&lon=${cityLon}&exclude=minutely,hourly,alerts,&units=metric&appid=${WEATHER_API_KEY}`;
+type Coordinates = {
+  latitude: number,
+  longitude: number
+};
+
+const getCurrentCoordinates = (options = {}) => new Promise((resolve, reject) => {
+  navigator.geolocation.getCurrentPosition(resolve, reject, options);
+});
+
+async function getDailyWeatherInfo(city: string): Promise<Array<IWeatherDetails> | []> {
+  const coordinates: Coordinates = {
+    latitude: 0,
+    longitude: 0,
+  };
+
+  if (city === 'current location') {
+    const position: any = await getCurrentCoordinates();
+    coordinates.latitude = position.coords.latitude;
+    coordinates.longitude = position.coords.longitude;
+  } else {
+    coordinates.latitude = CITY_COORDINATES[city].lat;
+    coordinates.longitude = CITY_COORDINATES[city].lon;
+  }
+
+  const url = `${API}/data/2.5/onecall?lat=${coordinates.latitude}&lon=${coordinates.longitude}&exclude=minutely,hourly,alerts,&units=metric&appid=${WEATHER_API_KEY}`;
 
   const dailyWeatherInfo: Promise<Array<IWeatherDetails> | []> = fetch(url)
     .then((response) => {
@@ -38,10 +59,22 @@ function getDailyWeatherInfo(city: string): Promise<Array<IWeatherDetails> | []>
   return dailyWeatherInfo;
 }
 
-function getPastForecastInfo(city: string, date: number): Promise<void | IWeatherDetails> {
-  const cityLat: number = CITY_COORDINATES[city].lat;
-  const cityLon: number = CITY_COORDINATES[city].lon;
-  const url = `${API}/data/2.5/onecall/timemachine?lat=${cityLat}&lon=${cityLon}&dt=${date}&units=metric&appid=${WEATHER_API_KEY}`;
+async function getPastForecastInfo(city: string, date: number): Promise<void | IWeatherDetails> {
+  const coordinates: Coordinates = {
+    latitude: 0,
+    longitude: 0,
+  };
+
+  if (city === 'current location') {
+    const position: any = await getCurrentCoordinates();
+    coordinates.latitude = position.coords.latitude;
+    coordinates.longitude = position.coords.longitude;
+  } else {
+    coordinates.latitude = CITY_COORDINATES[city].lat;
+    coordinates.longitude = CITY_COORDINATES[city].lon;
+  }
+
+  const url = `${API}/data/2.5/onecall/timemachine?lat=${coordinates.latitude}&lon=${coordinates.longitude}&dt=${date}&units=metric&appid=${WEATHER_API_KEY}`;
 
   const pastForecastInfo: Promise<void | IWeatherDetails> = fetch(url)
     .then((response) => {

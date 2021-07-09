@@ -8,7 +8,7 @@ interface IProps {
 
 const CitySelect: React.FC<IProps> = ({ changeCity }: IProps) => {
   const [city, setCity] = useState<string>('Select city');
-  const cities: Array<string> = ['Samara', 'Tolyatti', 'Saratov', 'Kazan', 'Krasnodar'];
+  const cities: Array<string> = ['Samara', 'Tolyatti', 'Saratov', 'Kazan', 'Krasnodar', 'Current location'];
   const [toggleSelect, setToggleSelect] = useState<boolean>(false);
 
   const toggleOptionGroup = (mouseEvent: React.MouseEvent<HTMLDivElement, MouseEvent>): void => {
