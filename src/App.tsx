@@ -22,7 +22,7 @@ const App: React.FC = () => (
 );
 
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/weather-forecast-pwa/sw.js').then(function (registration) {
+  navigator.serviceWorker.register('/sw.js').then(function (registration) {
     console.log('Service worker registration succeeded:', registration);
   }, function (error) {
     console.log('Service worker registration failed:', error);
