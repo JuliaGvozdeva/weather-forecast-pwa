@@ -23,5 +23,17 @@
  "start_url": ".",
  "display": "standalone",
  "theme_color": "#373af5",
- "background_color": "#373af5"
+ "background_color": "#373af5",
+ "screenshots": [
+  {
+   "src": "screenshot_1.jpg",
+   "sizes": "1080x2400",
+   "type": "image/jpg"
+  },
+  {
+   "src": "screenshot_2.jpg",
+   "sizes": "1080x2400",
+   "type": "image/jpg"
+  }
+ ]
 }
